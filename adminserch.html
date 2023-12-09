@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* White background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #container {
+            background-color: #f4f4f4; /* Light gray container background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #ffffff; /* White card background */
+        }
+
+        label {
+            color: #3366cc; /* Blue label color */
+        }
+
+        input,
+        button {
+            background-color: #3366cc; /* Blue input and button background */
+            color: #ffffff; /* White text color for input and button */
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-top: 8px;
+            cursor: pointer;
+        }
+
+        input::placeholder {
+            color: #ccc; /* Light gray placeholder text */
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>Student Details</h2>
+
+        <label for="rollNumber">Enter Roll Number:</label>
+        <input type="text" id="rollNumber" placeholder="Enter Roll Number">
+        <button onclick="searchStudent()">Search</button>
+
+        <div id="result"></div>
+
+        <script>
+            // Sample student data
+            const students = [
+                { name: "Sushruth", rollNumber: "001", branch: "Computer Science", cgpa: 9.8, placementStatus: "Placed" },
+                { name: "Praveen", rollNumber: "002", branch: "Electrical Engineering", cgpa: 9.5, placementStatus: "Placed" },
+                { name: "Varsha", rollNumber: "003", branch: "CSIT", cgpa: 9.5, placementStatus: "Placed" },
+                { name: "Uday", rollNumber: "004", branch: "Mechanical Engineering", cgpa: 9.9, placementStatus: "Placed" },
+                // Add more students as needed
+            ];
+
+            function searchStudent() {
+                const rollNumberInput = document.getElementById("rollNumber").value;
+                const resultContainer = document.getElementById("result");
+
+                // Find the student with the given roll number
+                const student = students.find(s => s.rollNumber === rollNumberInput);
+
+                if (student) {
+                    // Display student details in a card format
+                    resultContainer.innerHTML = `
+                        <div class="card">
+                            <p><strong>Name:</strong> ${student.name}</p>
+                            <p><strong>Roll Number:</strong> ${student.rollNumber}</p>
+                            <p><strong>Branch:</strong> ${student.branch}</p>
+                            <p><strong>CGPA:</strong> ${student.cgpa}</p>
+                            <p><strong>Placement Status:</strong> ${student.placementStatus}</p>
+                        </div>
+                    `;
+                } else {
+                    resultContainer.innerHTML = "<p>No student found with the given roll number.</p>";
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

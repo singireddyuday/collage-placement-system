@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Admin Login Page</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+        background-image: url('mlri.jpeg'); /* Replace 'background.jpg' with your actual image file */
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 3px;
+        opacity: 1;
+    }
+    
+    .container {
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 8px;
+        padding: 20px;
+        width: 300px;
+        height: 320px;
+        text-align: center;
+    }
+    
+    .login-form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    label {
+        margin-top: 10px;
+    }
+    
+    input {
+        padding: 8px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin: 30px 0px;
+        margin-left: 90px;
+    }
+    
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+<body>
+    <div class="container">
+        <form class="login-form">
+            <h1>Admin Login</h1>
+            <label for="adminUsername">Username:</label>
+            <input type="text" id="adminUsername" name="adminUsername" required>
+            <label for="adminPassword">Password:</label>
+            <input type="password" id="adminPassword" name="adminPassword" required>
+            <button type="submit" onclick="adminLogin()">Login</button>
+        </form>
+    </div>
+    <script src="script2.js"></script>
+</body>
+</html>

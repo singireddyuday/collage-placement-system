@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Student Details</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+        background-color: #f0f0f0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333;
+        padding: 10px;
+        color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+
+    .navbar-buttons {
+        display: flex;
+        gap: 20px;
+    }
+
+    .navbar-buttons button {
+        color: white;
+        background-color: #555;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .navbar-buttons button:hover {
+        background-color: #777;
+    }
+
+    .student-details {
+        width: 80%;
+        background-color: white;
+        padding: 20px;
+        margin-top: 70px; /* Adjust this margin based on your needs */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    table {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    #student-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 20px; /* Center the image horizontally, add 20px margin at the bottom */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #student-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
+<body>
+
+    <header>
+        <h1>Student Details</h1>
+        <div class="navbar-buttons">
+            <button onclick="openschedule()">Schedule</button>
+            <button onclick="openResume()">Resume</button>
+            <button onclick="showNotification()">Notification</button>
+        </div>
+    </header>
+
+    <div class="student-details" id="studentDetails">
+        <div id="student-image">
+            <!-- Use an actual image source or a placeholder image -->
+            <img src="contact.jpg" alt="Student Image">
+        </div>
+        <table>
+            <tr>
+                <th>Field</th>
+                <th>Details</th>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td id="studentName"></td>
+            </tr>
+            <tr>
+                <td>Father's Name</td>
+                <td id="fatherName"></td>
+            </tr>
+            <tr>
+                <td>Phone Number</td>
+                <td id="phoneNumber"></td>
+            </tr>
+            <tr>
+                <td>Year</td>
+                <td id="year"></td>
+            </tr>
+            <tr>
+                <td>Branch</td>
+                <td id="branch"></td>
+            </tr>
+            <tr>
+                <td>Section</td>
+                <td id="section"></td>
+            </tr>
+            <tr>
+                <td>Placement Position</td>
+                <td id="placementPosition"></td>
+            </tr>
+            <tr>
+                <td>GitHub Username</td>
+                <td id="githubUsername"></td>
+            </tr>
+            <tr>
+                <td>LinkedIn Profile</td>
+                <td id="linkedinProfile"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="studentdetails.js"></script>
+</body>
+</html>

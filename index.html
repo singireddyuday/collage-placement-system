@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            background-color: white;
+            overflow: hidden;
+            padding: 5px;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar img {
+            max-height: 80px;
+            margin-left: 20px;
+            height: 50px;
+            width: auto;
+            margin-right: 20px;
+            padding: 5px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: auto;
+            padding: 10px;
+        }
+
+        .navbar a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+
+        .navbar a:hover {
+            background-color: #fff;
+            color: #007BFF;
+        }
+
+        .navbar .right-links {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .navbar .student-login, .navbar .admin-login {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-left: 15px;
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        #head {
+            margin: 20px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: medium;
+            border-radius: 3px dashed black;
+            width: 90%;
+            padding: 20px;
+        }
+
+        .custom-container {
+            max-width: 90%;
+            margin: 20px auto;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            transition: max-height 0.8s ease-out;
+        }
+
+        .custom-read-more-button-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 10px;
+        }
+
+        .custom-read-more-button {
+            background-color: #FF0000;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-read-more-text {
+            display: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .navbar .logo {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .navbar img {
+                margin-right: 0;
+            }
+
+            .navbar .right-links {
+                flex-direction: column;
+                align-items: center;
+                margin-top: 10px;
+            }
+
+            .navbar a {
+                margin: 5px 0;
+            }
+
+            .navbar .student-login, .navbar .admin-login {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .slider-container {
+                margin-top: 10px;
+            }
+
+            #head {
+                margin: 10px;
+            }
+
+            .custom-container {
+                max-width: 100%;
+            }
+        }
+    </style>
+    <title>MLR Institute of Technology</title>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo"><img src="mlrit logo.jpg" alt=""></div>
+        <div class="right-links">
+            <a href="index.html">Home</a>
+            <a href="#">About</a>
+            <a href="placement.html">Placement Details</a>
+            <a href="studentlogin.html" class="student-login">Student Login</a>
+            <a href="adminlog.html" class="admin-login">Admin Login</a>
+        </div>
+    </div>
+
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="web-banner-3.png" alt="Slide 1">
+            </div>
+            <div class="slide">
+                <img src="Mlrit-web-banner-1920x677.png" alt="Slide 2">
+            </div>
+            <div class="slide">
+                <img src="slide1.jpg" alt="Slide 3">
+            </div>
+        </div>
+    </div>
+
+    <div id="head">
+        <h2>We Provide Best Quality<br>of Education</h2>
+        <p>MLR Institute of Technology (MLRIT) stands out as a premier educational institution committed to delivering top-notch quality education. With state-of-the-art
+            infrastructure and industry-class training facilities, MLRIT ensures a holistic learning environment for students. The college takes pride in fostering academic
+            excellence, innovation, and the development of practical skills, preparing students to meet the dynamic challenges of the professional world. With a dedicated
+            focus on quality education and cutting-edge facilities, MLRIT is a beacon for aspiring individuals seeking a transformative educational experience.</p>
+    </div>
+
+    <div class="custom-container" id="overview-container">
+        <h2>Overview</h2>
+        <p>
+            MLR Institute of Technology is known for its integrated curriculum with equal importance to academics, employable skills & sports. MLR Institute of
+            Technology (MLRIT) is located at Dundigal, Hyderabad, Telangana, India. The institution was started in 2005 by the KMR Education Trust, headed by
+            Mr. Marri Laxman Reddy. The Institute has Six UG courses along with Seven PG Courses. The Institute is affiliated with Jawaharlal Nehru Technological
+            University, Hyderabad (JNTUH). It was granted Autonomous status by University Grants Commission (India) in the year 2015.
+        </p>
+        <div class="custom-read-more-button-container">
+            <button class="custom-read-more-button" onclick="toggleReadMore('overview-container')">Read More<span class="custom-read-more-text"> about MLRIT</span></button>
+        </div>
+    </div>
+
+    <div class="custom-container" id="mission-container">
+        <h2>Mission</h2>
+        <p>
+            Provide student-centric education and training on cutting-edge technologies to make the students globally competitive and socially responsible citizens.
+            Create an environment to strengthen the research, innovation, and entrepreneurship to solve societal problems.
+        </p>
+        <div class="custom-read-more-button-container">
+            <button class="custom-read-more-button" onclick="toggleReadMore('mission-container')">Read More<span class="custom-read-more-text"> about Mission</span></button>
+        </div>
+    </div>
+
+    <script>
+        function toggleReadMore(containerId) {
+            var container = document.getElementById(containerId);
+            var readMoreText = container.querySelector('.custom-read-more-text');
+
+            if (container.style.maxHeight) {
+                container.style.maxHeight = null;
+                readMoreText.style.display = 'none';
+            } else {
+                container.style.maxHeight = container.scrollHeight + 'px';
+                readMoreText.style.display = 'inline';
+            }
+        }
+
+        // Set the interval to automatically slide images every 0.5 seconds
+        setInterval(() => {
+            const sliderContainer = document.querySelector('.slider');
+            const slideWidth = document.querySelector('.slide').offsetWidth;
+
+            // Calculate the new transform value for the slider
+            const newTransformValue = `translateX(-${slideWidth}px)`;
+
+            // Apply the transition and transform to create the sliding effect
+            sliderContainer.style.transition = `transform 0.5s ease-in-out`;
+            sliderContainer.style.transform = newTransformValue;
+
+            // Reset the transform after the transition ends
+            setTimeout(() => {
+                sliderContainer.style.transition = 'none';
+                sliderContainer.style.transform = 'translateX(0)';
+            }, 500);
+        }, 500);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!-- admin vala file -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="details.html">
+    <title>Admin Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #adminPage {
+            max-width: 600px;
+            width: 100%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            margin-bottom: 16px;
+            padding: 8px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="adminPage">
+    <h2>Admin Page</h2>
+    <form id="adminForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="rollNumber">Roll Number:</label>
+        <input type="text" id="rollNumber" name="rollNumber" required>
+
+        <label for="department">Department:</label>
+        <input type="text" id="department" name="department" required>
+
+        <label for="cgpa">CGPA:</label>
+        <input type="number" id="cgpa" name="cgpa" step="0.01" required>
+
+        <label for="placementStatus">Placement Status:</label>
+        <select id="placementStatus" name="placementStatus" required>
+            <option value="Placed">Placed</option>
+            <option value="Not Placed">Not Placed</option>
+        </select>
+
+        <button type="button" onclick="addStudent()">Add Student</button>
+    </form>
+</div>
+
+<!-- ... (previous code) -->
+
+<script>
+    const students = []; 
+    // Function to add student from the admin form
+    function addStudent() {
+        const name = document.getElementById('name').value;
+        const rollNumber = document.getElementById('rollNumber').value;
+        const department = document.getElementById('department').value;
+        const cgpa = parseFloat(document.getElementById('cgpa').value);
+        const placementStatus = document.getElementById('placementStatus').value;
+
+        const newStudent = {
+            name: name,
+            rollNumber: rollNumber,
+            department: department,
+            cgpa: cgpa,
+            placementStatus: placementStatus
+        };
+
+        students.push(newStudent);
+        updateLocalStorage();
+        alert('Student added successfully!');
+        resetAdminForm();
+    }
+
+    // Function to update local storage with the current students array
+    function updateLocalStorage() {
+        localStorage.setItem('students', JSON.stringify(students));
+    }
+
+    // Function to reset the admin form after adding a student
+    function resetAdminForm() {
+        document.getElementById('adminForm').reset();
+    }
+</script>
+
+<!-- ... (remaining code) -->
+
+
+</body>
+</html>

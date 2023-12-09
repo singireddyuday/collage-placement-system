@@ -1,0 +1,195 @@
+<!-- index vala code -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #studentDetails {
+            max-width: 800px;
+            width: 100%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .actions {
+            display: flex;
+            gap: 5px;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* Add some styles for the edit/delete modal (optional) */
+        #editModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #editModal form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div id="studentDetails">
+    <h2>Student Details</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Roll Number</th>
+                <th>Department</th>
+                <th>CGPA</th>
+                <th>Placement Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="studentTableBody"></tbody>
+    </table>
+</div>
+
+<!-- Edit Modal -->
+<div id="editModal">
+    <form id="editForm">
+        <label for="editName">Name:</label>
+        <input type="text" id="editName" name="editName" required>
+
+        <label for="editRollNumber">Roll Number:</label>
+        <input type="text" id="editRollNumber" name="editRollNumber" required>
+
+        <label for="editDepartment">Department:</label>
+        <input type="text" id="editDepartment" name="editDepartment" required>
+
+        <label for="editCGPA">CGPA:</label>
+        <input type="number" id="editCGPA" name="editCGPA" step="0.01" required>
+
+        <label for="editPlacementStatus">Placement Status:</label>
+        <select id="editPlacementStatus" name="editPlacementStatus" required>
+            <option value="Placed">Placed</option>
+            <option value="Not Placed">Not Placed</option>
+        </select>
+
+        <button type="button" onclick="updateStudent()">Update Student</button>
+        <button type="button" onclick="closeEditModal()">Close</button>
+    </form>
+</div>
+
+<script>
+    // Function to display student details in the table
+    function displayStudentDetails() {
+        const studentTableBody = document.getElementById('studentTableBody');
+        studentTableBody.innerHTML = '';
+
+        const storedStudents = JSON.parse(localStorage.getItem('students')) || [];
+
+        storedStudents.forEach((student, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${student.name}</td>
+                <td>${student.rollNumber}</td>
+                <td>${student.department}</td>
+                <td>${student.cgpa}</td>
+                <td>${student.placementStatus}</td>
+                <td class="actions">
+                    <button onclick="editStudent(${index})">Edit</button>
+                    <button onclick="deleteStudent(${index})">Delete</button>
+                </td>
+            `;
+            studentTableBody.appendChild(row);
+        });
+    }
+
+    // Function to open the edit modal
+    function editStudent(index) {
+        const student = JSON.parse(localStorage.getItem('students'))[index];
+        document.getElementById('editName').value = student.name;
+        document.getElementById('editRollNumber').value = student.rollNumber;
+        document.getElementById('editDepartment').value = student.department;
+        document.getElementById('editCGPA').value = student.cgpa;
+        document.getElementById('editPlacementStatus').value = student.placementStatus;
+
+        document.getElementById('editModal').style.display = 'flex';
+    }
+
+    // Function to close the edit modal
+    function closeEditModal() {
+        document.getElementById('editModal').style.display = 'none';
+    }
+
+    // Function to update student information
+    function updateStudent() {
+        const index = document.getElementById('editIndex').value;
+        const students = JSON.parse(localStorage.getItem('students'));
+        const updatedStudent = {
+            name: document.getElementById('editName').value,
+            rollNumber: document.getElementById('editRollNumber').value,
+            department: document.getElementById('editDepartment').value,
+            cgpa: parseFloat(document.getElementById('editCGPA').value),
+            placementStatus: document.getElementById('editPlacementStatus').value,
+        };
+
+        students[index] = updatedStudent;
+        localStorage.setItem('students', JSON.stringify(students));
+        displayStudentDetails();
+        closeEditModal();
+    }
+
+    // Function to delete student information
+    function deleteStudent(index) {
+        const students = JSON.parse(localStorage.getItem('students'));
+        students.splice(index, 1);    
+        localStorage.setItem('students', JSON.stringify(students));
+        displayStudentDetails();
+    }
+
+    // Display student details when the page loads
+    window.onload = displayStudentDetails;
+</script>
+
+</body>
+</html>
